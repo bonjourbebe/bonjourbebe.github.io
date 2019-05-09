@@ -1,0 +1,132 @@
+@media all {
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  a {
+    outline: none;
+  }
+  ul,
+  ol,
+  dl {
+    list-style: none;
+  }
+  hr {
+    display: none;
+  }
+  .clear {
+    clear: both;
+  }
+}
+@media all {
+  html {
+    height: 100%;
+  }
+  body {
+    font-size: 21px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+    color: #616161;
+    background: #ffffff url('../images/duo-bg.jpg') center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+  }
+  .content h2 {
+    padding-top: 50px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .content p {
+    margin-bottom: 52px;
+    text-transform: uppercase;
+  }
+  .content a.img {
+    opacity: 0.5;
+  }
+  .content a.img:hover {
+    opacity: 0.75;
+  }
+  .content a.btn {
+    display: inline-block;
+    padding: 8px 30px 6px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    background: #4771cf;
+    color: rgba(255, 255, 255, 0.7);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+  .content a.btn.btn-pink {
+    background-color: #fc6791;
+  }
+  .content a.btn:hover {
+    color: #ffffff;
+  }
+  .content b,
+  .content strong {
+    font-weight: 700;
+  }
+  .clear {
+    clear: both;
+  }
+  .page-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 900px;
+    margin: 0 auto;
+  }
+  .page-wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .half-wrapper {
+    float: left;
+    width: 50%;
+    padding: 150px 0 50px 0;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  
+}
+@media only screen and (min-width: 1024px) {
+  
+}
