@@ -123,10 +123,13 @@
     width: 50%;
     padding: 150px 0 50px 0;
   }
+  .full-wrapper {
+    padding: 150px 0 50px 0;
+  }
 }
 @media only screen and (max-width: 1023px) {
-  
+
 }
 @media only screen and (min-width: 1024px) {
-  
+
 }
