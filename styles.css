@@ -243,6 +243,11 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .footer .logo-text small{color:var(--sun-100)}
 .footer .logo img{width:44px;height:44px;border-radius:50%;background:var(--white)}
 .footer a{color:var(--white)}
+.footer-end{display:flex;align-items:center;gap:20px}
+.social{display:flex;gap:10px}
+.social a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);color:var(--white);transition:background .2s,color .2s}
+.social a:hover{background:var(--sun);color:var(--ink)}
+.social svg{width:20px;height:20px;fill:currentColor}
 
 .mobile-bar{display:none}
 
