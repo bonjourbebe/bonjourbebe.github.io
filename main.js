@@ -70,8 +70,8 @@
     const bar = document.getElementById('rv-bar');
     const dotLabel = box.dataset.dotLabel || 'Opinia';
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // ok. 200 słów na minutę + 2 s na spojrzenie; minimum 5 s, maksimum 16 s
-    const readTime = (t) => Math.min(16000, Math.max(5000, 2000 + t.trim().split(/\s+/).length * 300));
+    // ok. 200 słów na minutę + 2 s na spojrzenie; minimum 5 s, maksimum 25 s
+    const readTime = (t) => Math.min(25000, Math.max(5000, 2000 + t.trim().split(/\s+/).length * 300));
     let i = 0, timer = null, start = 0, left = 0, total = 0, paused = false, raf = 0;
 
     data.forEach((_, n) => {
@@ -128,6 +128,21 @@
     box.addEventListener('focusin', pause);
     box.addEventListener('focusout', (e) => { if (!box.contains(e.relatedTarget)) resume(); });
     document.addEventListener('visibilitychange', () => (document.hidden ? pause() : resume()));
+
+    // stała wysokość karty = najdłuższa opinia, żeby strona nie „skakała” przy zmianie
+    function lockHeight() {
+      fig.style.minHeight = '';
+      let max = 0;
+      data.forEach((r) => {
+        textEl.textContent = r.text;
+        authorEl.textContent = r.author + (r.date ? ' · ' + r.date : '');
+        max = Math.max(max, fig.offsetHeight);
+      });
+      fig.style.minHeight = max + 'px';
+      render();
+    }
+    lockHeight();
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(lockHeight, 200); });
 
     render(); total = readTime(data[i].text); schedule(total);
   })();

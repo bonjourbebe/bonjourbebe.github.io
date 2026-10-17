@@ -248,9 +248,9 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .reviews{margin-top:32px;padding:24px 26px 20px;border-radius:var(--r-lg);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);max-width:34em}
 .reviews-head{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sun-100)}
 .stars{color:var(--sun);letter-spacing:2px;font-size:16px}
-.review{margin:14px 0 0;min-height:7.5em;display:flex;flex-direction:column;justify-content:center;transition:opacity .35s}
+.review{margin:14px 0 0;display:flex;flex-direction:column;justify-content:center;transition:opacity .35s}
 .review.is-fading{opacity:0}
-.review blockquote{margin:0;font-size:18px;line-height:1.6;color:var(--white)}
+.review blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--white)}
 .review blockquote::before{content:"\201C";display:block;font-family:Georgia,serif;font-size:46px;line-height:.8;height:22px;color:var(--sun)}
 .review figcaption{margin-top:12px;font-weight:800;color:#dfe6f7;font-size:15px}
 .reviews-nav{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
