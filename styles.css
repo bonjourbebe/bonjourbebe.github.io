@@ -182,6 +182,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .g-item{padding:0;border:0;background:var(--blue-100);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;aspect-ratio:1}
 .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .g-item:hover img{transform:scale(1.04)}
+.g-music img{object-position:center 35%}
 .g-wide{grid-column:1/-1;aspect-ratio:16/8;border-radius:var(--r-lg)}
 
 /* ---------- kadra ---------- */
@@ -341,7 +342,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .activities,.steps{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr}
   .g-wide{aspect-ratio:4/3}
-  .g-item:last-child{display:none}
+  .gallery .g-item:nth-child(4){display:none}
   .values,.edges{grid-template-columns:1fr}
   .value,.edge,.care,.fund,.founder,.contact-card{padding:26px}
   .offer{flex-direction:column;align-items:flex-start;padding:24px}
