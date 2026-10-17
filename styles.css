@@ -105,8 +105,8 @@ h3{font-size:20px;font-weight:800;line-height:1.3}
 .ph-small{aspect-ratio:1}
 .ph-a{grid-column:1/2;border-radius:50%}
 .ph-b{grid-column:2/4;aspect-ratio:2/1;border-radius:var(--r-lg) var(--r-lg) 120px var(--r-lg)}
-.ph-b img{object-position:center 30%}
-.bubble{position:absolute;z-index:4;top:18px;right:-6px;background:var(--sun);font-family:var(--display);font-weight:700;font-size:20px;padding:10px 20px;border-radius:24px 24px 24px 6px;transform:rotate(6deg);box-shadow:0 12px 24px -14px rgba(150,100,10,.6)}
+.ph-b img{object-position:center 40%}
+.bubble{position:absolute;z-index:4;top:22px;left:-14px;background:var(--sun);font-family:var(--display);font-weight:700;font-size:20px;padding:10px 20px;border-radius:24px 24px 6px 24px;transform:rotate(-6deg);box-shadow:0 12px 24px -14px rgba(150,100,10,.6)}
 
 .facts{list-style:none;margin:48px 0 0;padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow);position:relative;top:40px}
 .facts li{display:flex;flex-direction:column;gap:2px;padding-left:18px;border-left:3px solid var(--blue-100)}
@@ -333,7 +333,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .hero{padding-top:32px}
   .hero-lead{font-size:18px}
   .hero-actions .btn{width:100%}
-  .bubble{font-size:16px;padding:8px 14px;right:0}
+  .bubble{font-size:16px;padding:8px 14px;left:-4px}
   .facts{padding:20px;margin-top:32px;top:28px}
   .facts li{padding-left:12px}
   .section-head{margin-bottom:32px}
