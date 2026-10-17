@@ -495,10 +495,12 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .act-photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
 .act-photo:hover img{transform:scale(1.05)}
 .act-gallery--5{grid-template-columns:repeat(5,1fr)}
+.act-gallery--3{grid-template-columns:repeat(3,1fr);max-width:60%}
+.act-gal-next{margin-top:26px}
 .act-hint{margin-top:12px;font-size:13.5px;color:var(--muted)}
 @media (max-width:600px){
   .act-facts{grid-template-columns:1fr;gap:8px;margin:18px 0 24px}
-  .act-gallery,.act-gallery--5{grid-template-columns:repeat(3,1fr);gap:6px}
+  .act-gallery,.act-gallery--5,.act-gallery--3{grid-template-columns:repeat(3,1fr);gap:6px;max-width:none}
   .act-photo{border-radius:10px}
 }
 
