@@ -60,9 +60,40 @@
       count.textContent = (i + 1) + ' / ' + photos.length;
       preload(i + 1); preload(i - 1);
     }
+    const main = document.querySelector('#gallery .g-wide');
+    let k = 0;
     document.querySelectorAll('#gallery .g-item').forEach((btn) => {
-      btn.addEventListener('click', () => { show(Number(btn.dataset.index) || 0); box.showModal(); document.body.style.overflow = 'hidden'; });
+      btn.addEventListener('click', () => {
+        const start = btn === main ? k : (Number(btn.dataset.index) || 0);
+        show(start); box.showModal(); document.body.style.overflow = 'hidden';
+      });
     });
+
+    // Po najechaniu myszką na duże zdjęcie galeria przewija się sama (tylko na urządzeniach z myszką)
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (main && canHover && !reduce && photos.length > 1) {
+      const layers = [0, 1].map(() => { const im = document.createElement('img'); im.className = 'g-cycle'; im.alt = ''; im.setAttribute('aria-hidden', 'true'); main.append(im); return im; });
+      const dots = document.createElement('span'); dots.className = 'g-dots'; dots.setAttribute('aria-hidden', 'true');
+      photos.forEach(() => dots.append(document.createElement('i'))); main.append(dots);
+      const mark = () => dots.querySelectorAll('i').forEach((d, n) => d.classList.toggle('on', n === k));
+      let timer = null, front = 0;
+      function step() {
+        k = (k + 1) % photos.length;
+        const next = layers[1 - front];
+        next.onload = () => { next.classList.add('on'); layers[front].classList.remove('on'); front = 1 - front; };
+        next.src = photos[k].src; mark();
+      }
+      main.addEventListener('mouseenter', () => {
+        photos.forEach((p) => { const im = new Image(); im.src = p.src; });
+        k = 0; mark(); main.classList.add('is-cycling');
+        timer = setInterval(step, 1600);
+      });
+      main.addEventListener('mouseleave', () => {
+        clearInterval(timer); timer = null; k = 0;
+        layers.forEach((l) => l.classList.remove('on')); main.classList.remove('is-cycling');
+      });
+    }
     box.addEventListener('close', () => { document.body.style.overflow = ''; });
     document.getElementById('lb-prev').addEventListener('click', () => show(i - 1));
     document.getElementById('lb-next').addEventListener('click', () => show(i + 1));
