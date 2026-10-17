@@ -72,6 +72,13 @@ h3{font-size:20px;font-weight:800;line-height:1.3}
 .included{display:flex;align-items:flex-start;gap:12px;margin-top:28px;padding:16px 20px;border-radius:var(--r-md);background:var(--white);box-shadow:var(--shadow);font-size:16px;max-width:760px}
 .included strong{color:var(--ink)}
 .included-icon{flex-shrink:0;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--sun);color:var(--ink);font-weight:800;font-size:15px}
+.trips{margin-top:28px;display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center;padding:32px 36px;border-radius:var(--r-lg);background:var(--white);box-shadow:var(--shadow)}
+.trips h3{font-size:24px;margin:4px 0 10px}
+.trips-text p:last-child{color:var(--muted);margin:0}
+.trip-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.trip-list li{padding:9px 15px;border-radius:999px;background:var(--blue-50);color:var(--blue-deep);font-weight:700;font-size:15px;line-height:1.3}
+.trip-list li.is-key{background:var(--sun-100);color:var(--ink)}
+.trip-list li.is-more{background:transparent;color:var(--muted);font-weight:600;padding-left:4px}
 .fine{margin-top:24px;font-size:15px;color:var(--muted)}
 
 .section{padding-block:clamp(64px,9vw,112px)}
@@ -367,6 +374,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .timeline{padding:8px 12px 14px}
   .timeline li{grid-template-columns:52px 1fr;gap:12px;padding:10px 8px;font-size:15px}
   .activities,.steps{grid-template-columns:1fr}
+  .trips{grid-template-columns:1fr;gap:18px;padding:24px 22px}
   .gallery{grid-template-columns:1fr 1fr}
   .g-wide{aspect-ratio:4/3}
   .gallery{grid-template-columns:repeat(3,1fr);gap:10px}
