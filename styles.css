@@ -422,7 +422,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .deco{display:block;height:auto;mix-blend-mode:multiply;pointer-events:none;user-select:none}
 .deco-day{width:min(240px,70%);margin-top:28px}
 .deco-faq{width:min(220px,70%);margin-top:24px}
-.deco-corner{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));top:-8px;width:250px}
+.deco-corner{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));top:-30px;width:210px}
 #adaptacja>.container,#settling-in>.container{position:relative}
 .care{position:relative}
 .deco-card{position:absolute;right:20px;top:14px;width:120px}
