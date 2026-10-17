@@ -421,7 +421,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 /* ---------- drewniane grafiki-akcenty (jedna na sekcję, zawsze obok tekstu) ---------- */
 .deco{display:block;height:auto;mix-blend-mode:multiply;pointer-events:none;user-select:none}
 .deco-day{width:min(240px,70%);margin-top:28px}
-.deco-faq{width:min(220px,70%);margin-top:24px}
+.deco-faq{width:min(170px,55%);margin-top:28px}
 .deco-corner{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));top:-30px;width:210px}
 #adaptacja>.container,#settling-in>.container{position:relative}
 .care{position:relative}
