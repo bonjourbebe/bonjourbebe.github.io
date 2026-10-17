@@ -470,6 +470,37 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .deco-day,.deco-faq{width:170px}
 }
 
+/* ---------- zajęcia: klikalna karta i okno z opisem ---------- */
+.activity.is-clickable{position:relative;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.activity.is-clickable:hover{transform:translateY(-4px);box-shadow:0 26px 50px -26px rgba(54,80,143,.55)}
+.act-more{margin-top:14px;padding:0;border:0;background:none;font:inherit;font-size:14.5px;font-weight:800;color:var(--blue-deep);cursor:pointer;text-align:left}
+.act-more span{display:inline-block;transition:transform .2s}
+.activity.is-clickable:hover .act-more span{transform:translateX(4px)}
+.act-more::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.act-dialog{border:0;padding:clamp(24px,4vw,44px);width:min(920px,calc(100% - 24px));max-height:calc(100dvh - 32px);border-radius:var(--r-lg);background:var(--white);color:var(--ink);box-shadow:0 40px 80px -30px rgba(24,30,46,.5)}
+.act-dialog::backdrop{background:rgba(24,30,46,.6);backdrop-filter:blur(3px)}
+.act-close{position:sticky;top:0;float:right;margin:-8px -8px 0 0;width:44px;height:44px;border-radius:50%;border:0;background:var(--blue-50);color:var(--blue-deep);font-size:26px;line-height:1;cursor:pointer;z-index:2}
+.act-close:hover{background:var(--sun)}
+.act-dialog h2{margin-bottom:14px}
+.act-lead{color:var(--muted);font-size:17px;max-width:64ch;margin-bottom:10px}
+.act-facts{list-style:none;padding:0;margin:22px 0 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.act-facts li{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:var(--r-md);background:var(--blue-50)}
+.act-facts li:nth-child(2){background:var(--sun-50)}
+.act-facts li:nth-child(3){background:var(--sun-100)}
+.act-facts strong{font-family:var(--display);font-size:19px;color:var(--blue-deep)}
+.act-facts span{font-size:14.5px;color:var(--muted);line-height:1.4}
+.act-gal-title{font-family:var(--display);font-size:20px;margin:0 0 14px}
+.act-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.act-photo{padding:0;border:0;border-radius:14px;overflow:hidden;aspect-ratio:1;cursor:zoom-in;background:var(--blue-50)}
+.act-photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.act-photo:hover img{transform:scale(1.05)}
+.act-hint{margin-top:12px;font-size:13.5px;color:var(--muted)}
+@media (max-width:600px){
+  .act-facts{grid-template-columns:1fr;gap:8px;margin:18px 0 24px}
+  .act-gallery{grid-template-columns:repeat(3,1fr);gap:6px}
+  .act-photo{border-radius:10px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none !important;animation:none !important}

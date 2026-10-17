@@ -45,27 +45,30 @@
     const dataEl = document.getElementById('gallery-data');
     if (!box || !dataEl || typeof box.showModal !== 'function') return;
     const photos = JSON.parse(dataEl.textContent);
+    let set = photos; // aktualnie oglądany zestaw zdjęć (galeria sal albo galeria zajęć)
     const img = document.getElementById('lb-img');
     const cap = document.getElementById('lb-cap');
     const count = document.getElementById('lb-count');
     let i = 0;
-    const preload = (n) => { const p = photos[(n + photos.length) % photos.length]; if (p) { const im = new Image(); im.src = p.src; } };
+    const preload = (n) => { const p = set[(n + set.length) % set.length]; if (p) { const im = new Image(); im.src = p.src; } };
     function show(n) {
-      i = (n + photos.length) % photos.length;
+      i = (n + set.length) % set.length;
       img.classList.add('is-loading');
       img.onload = () => img.classList.remove('is-loading');
-      img.src = photos[i].src;
-      img.alt = photos[i].cap;
-      cap.textContent = photos[i].cap;
-      count.textContent = (i + 1) + ' / ' + photos.length;
+      img.src = set[i].src;
+      img.alt = set[i].cap;
+      cap.textContent = set[i].cap;
+      count.textContent = (i + 1) + ' / ' + set.length;
       preload(i + 1); preload(i - 1);
     }
+    function openSet(arr, n) { set = arr; show(n); box.showModal(); document.body.style.overflow = 'hidden'; }
+    window.bbOpenGallery = openSet;
     const main = document.querySelector('#gallery .g-wide');
     let k = 0;
     document.querySelectorAll('#gallery .g-item').forEach((btn) => {
       btn.addEventListener('click', () => {
         const start = btn === main ? k : (Number(btn.dataset.index) || 0);
-        show(start); box.showModal(); document.body.style.overflow = 'hidden';
+        openSet(photos, start);
       });
     });
 
@@ -94,7 +97,7 @@
         layers.forEach((l) => l.classList.remove('on')); main.classList.remove('is-cycling');
       });
     }
-    box.addEventListener('close', () => { document.body.style.overflow = ''; });
+    box.addEventListener('close', () => { if (!document.querySelector('dialog[open]')) document.body.style.overflow = ''; });
     document.getElementById('lb-prev').addEventListener('click', () => show(i - 1));
     document.getElementById('lb-next').addEventListener('click', () => show(i + 1));
     box.querySelector('.lb-close').addEventListener('click', () => box.close());
@@ -113,6 +116,21 @@
       x0 = y0 = null;
     });
   })();
+
+
+  // Zajęcia dodatkowe: kliknięcie w kartę otwiera okno z opisem i galerią zdjęć
+  document.querySelectorAll('[data-open-activity]').forEach((btn) => {
+    const dlg = document.getElementById(btn.dataset.openActivity);
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    const data = JSON.parse(dlg.querySelector('.act-data').textContent);
+    btn.addEventListener('click', () => { dlg.showModal(); document.body.style.overflow = 'hidden'; });
+    dlg.querySelector('.act-close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => { if (!document.querySelector('dialog[open]')) document.body.style.overflow = ''; });
+    dlg.querySelectorAll('.act-photo').forEach((p) => {
+      p.addEventListener('click', () => { if (window.bbOpenGallery) window.bbOpenGallery(data, Number(p.dataset.index) || 0); });
+    });
+  });
 
   // Opinie z Google: tylko 5 gwiazdek, czas wyświetlania zależny od długości tekstu
   (function reviews() {
