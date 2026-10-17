@@ -1,0 +1,4 @@
+# Ustawienia GitHub Pages
+# Folder archive (poprzednia wersja strony) nie jest publikowany na bonjourbebe.pl
+exclude:
+  - archive
