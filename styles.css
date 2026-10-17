@@ -167,7 +167,6 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 /* ---------- zajęcia ---------- */
 .activities{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .activity{background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.activity:nth-child(3)>img{object-position:center 30%}
 .activity>img,.activity-art{aspect-ratio:4/3;width:100%;object-fit:cover}
 .activity-art svg{width:100%;height:100%;display:block}
 .activity-body{padding:22px 22px 26px}
