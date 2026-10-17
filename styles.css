@@ -444,11 +444,12 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 /* ---------- drewniane grafiki-akcenty (jedna na sekcję, zawsze obok tekstu) ---------- */
 .deco{display:block;height:auto;mix-blend-mode:multiply;pointer-events:none;user-select:none}
 .deco-day{width:min(240px,70%);margin-top:28px}
+.deco-hello{width:190px;top:-24px;mix-blend-mode:normal}
 .deco-anchor{width:fit-content;max-width:100%}
 .deco-anchor>.deco{margin-left:auto;margin-right:auto}
 .deco-faq{width:min(170px,55%);margin-top:32px}
 .deco-corner{position:absolute;left:calc(var(--gutter) + 744px);top:-10px;width:200px}
-#adaptacja>.container,#settling-in>.container{position:relative}
+#adaptacja>.container,#settling-in>.container,#podejscie>.container,#about>.container{position:relative}
 .care{position:relative}
 .deco-card{position:absolute;right:20px;top:14px;width:120px}
 .care h3,.care>p{padding-right:120px}
