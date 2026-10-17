@@ -501,6 +501,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 @media (max-width:600px){
   .act-facts{grid-template-columns:1fr;gap:8px;margin:18px 0 24px}
   .act-gallery,.act-gallery--5,.act-gallery--3{grid-template-columns:repeat(3,1fr);gap:6px;max-width:none}
+  .act-gallery--4{grid-template-columns:repeat(2,1fr)}
   .act-photo{border-radius:10px}
 }
 
