@@ -183,7 +183,6 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .g-item{padding:0;border:0;background:var(--blue-100);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;aspect-ratio:1}
 .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .g-item:hover img{transform:scale(1.04)}
-.g-music img{object-position:center 35%}
 .g-wide{grid-column:1/-1;aspect-ratio:16/8;border-radius:var(--r-lg)}
 
 /* ---------- kadra ---------- */
@@ -284,12 +283,33 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 
 .mobile-bar{display:none}
 
-/* ---------- lightbox ---------- */
-.lightbox{border:0;padding:16px;border-radius:var(--r-lg);max-width:min(920px,calc(100% - 32px));background:var(--white)}
-.lightbox::backdrop{background:rgba(44,54,80,.8)}
-.lightbox img{max-height:72vh;width:auto;margin:auto;border-radius:var(--r-md)}
-.lightbox p{text-align:center;margin-top:12px;font-weight:700}
-.lb-close{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;border:0;background:var(--white);color:var(--ink);font-size:26px;cursor:pointer;box-shadow:var(--shadow)}
+/* ---------- lightbox: pełnoekranowa galeria ---------- */
+.lightbox{border:0;margin:0;padding:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:rgba(24,30,46,.96);color:#fff;overflow:hidden}
+.lightbox::backdrop{background:rgba(24,30,46,.96)}
+.lightbox[open]{display:grid;grid-template-rows:auto 1fr}
+.lb-top{display:flex;align-items:center;justify-content:space-between;padding:14px max(16px, env(safe-area-inset-right, 0px)) 6px max(16px, env(safe-area-inset-left, 0px))}
+.lb-count{font-weight:800;font-size:15px;letter-spacing:.06em;font-variant-numeric:tabular-nums;color:#dfe6f7}
+.lb-close{width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.lb-close:hover{background:rgba(255,255,255,.22)}
+.lb-stage{margin:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:0 84px 28px}
+.lb-stage img{max-width:100%;max-height:calc(100dvh - 150px);width:auto;height:auto;object-fit:contain;border-radius:14px;transition:opacity .2s}
+.lb-stage img.is-loading{opacity:.35}
+.lb-stage figcaption{font-weight:700;font-size:17px;text-align:center;color:#fff}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:0;background:#fff;color:var(--blue-deep);font-size:24px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.lb-nav:hover{background:var(--sun);color:var(--ink)}
+.lb-prev{left:max(20px, env(safe-area-inset-left, 0px))}
+.lb-next{right:max(20px, env(safe-area-inset-right, 0px))}
+.g-item{position:relative}
+.g-badge{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--blue-deep);font-weight:800;font-size:14px;box-shadow:0 8px 20px -10px rgba(0,0,0,.35)}
+.g-badge svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+@media (max-width:600px){
+  .lb-stage{padding:0 12px 92px}
+  .lb-stage img{max-height:calc(100dvh - 200px)}
+  .lb-nav{top:auto;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:none;width:52px;height:52px}
+  .lb-prev{left:calc(50% - 64px)}
+  .lb-next{right:calc(50% - 64px)}
+  .g-badge{font-size:12.5px;padding:6px 11px;left:10px;bottom:10px}
+}
 
 /* ---------- menu zwijane do przycisku ---------- */
 @media (max-width:1180px){
@@ -343,7 +363,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .activities,.steps{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr}
   .g-wide{aspect-ratio:4/3}
-  .gallery .g-item:nth-child(4){display:none}
+  .gallery{grid-template-columns:repeat(3,1fr);gap:10px}
   .values,.edges{grid-template-columns:1fr}
   .value,.edge,.care,.fund,.founder,.contact-card{padding:26px}
   .offer{flex-direction:column;align-items:flex-start;padding:24px}

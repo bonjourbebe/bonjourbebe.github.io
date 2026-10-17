@@ -39,23 +39,49 @@
   markNow();
   setInterval(markNow, 60000);
 
-  // Galeria w powiększeniu
-  const box = document.getElementById('lightbox');
-  if (box && typeof box.showModal === 'function') {
+  // Galeria: kliknięcie w zdjęcie otwiera pełnoekranowy pokaz; strzałki, klawisze ← → i przesunięcie palcem
+  (function gallery() {
+    const box = document.getElementById('lightbox');
+    const dataEl = document.getElementById('gallery-data');
+    if (!box || !dataEl || typeof box.showModal !== 'function') return;
+    const photos = JSON.parse(dataEl.textContent);
     const img = document.getElementById('lb-img');
     const cap = document.getElementById('lb-cap');
-    document.querySelectorAll('.g-item').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        img.src = btn.dataset.src;
-        img.alt = btn.querySelector('img').alt;
-        cap.textContent = btn.dataset.caption || '';
-        box.showModal();
-      });
+    const count = document.getElementById('lb-count');
+    let i = 0;
+    const preload = (n) => { const p = photos[(n + photos.length) % photos.length]; if (p) { const im = new Image(); im.src = p.src; } };
+    function show(n) {
+      i = (n + photos.length) % photos.length;
+      img.classList.add('is-loading');
+      img.onload = () => img.classList.remove('is-loading');
+      img.src = photos[i].src;
+      img.alt = photos[i].cap;
+      cap.textContent = photos[i].cap;
+      count.textContent = (i + 1) + ' / ' + photos.length;
+      preload(i + 1); preload(i - 1);
+    }
+    document.querySelectorAll('#gallery .g-item').forEach((btn) => {
+      btn.addEventListener('click', () => { show(Number(btn.dataset.index) || 0); box.showModal(); document.body.style.overflow = 'hidden'; });
     });
+    box.addEventListener('close', () => { document.body.style.overflow = ''; });
+    document.getElementById('lb-prev').addEventListener('click', () => show(i - 1));
+    document.getElementById('lb-next').addEventListener('click', () => show(i + 1));
     box.querySelector('.lb-close').addEventListener('click', () => box.close());
-    box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
-  }
-
+    box.addEventListener('click', (e) => { if (e.target === box || e.target.id === 'lb-stage') box.close(); });
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); }
+    });
+    let x0 = null, y0 = null;
+    const stage = document.getElementById('lb-stage');
+    stage.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) show(dx < 0 ? i + 1 : i - 1);
+      x0 = y0 = null;
+    });
+  })();
 
   // Opinie z Google: tylko 5 gwiazdek, czas wyświetlania zależny od długości tekstu
   (function reviews() {
