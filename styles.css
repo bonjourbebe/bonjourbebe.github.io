@@ -134,7 +134,7 @@ h3{font-size:20px;font-weight:800;line-height:1.3}
 /* ---------- dzień ---------- */
 .day-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
 .day-intro{position:relative}
-.day-intro>p{margin-top:16px;color:var(--muted)}
+.day-intro>p:not(.kicker):not(.now-card),.day-intro .deco-anchor>p{margin-top:16px;color:var(--muted)}
 .now-card{margin-top:28px !important;padding:20px 24px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;color:var(--ink) !important}
 .now-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep)}
 .now-label::before{content:"";width:10px;height:10px;border-radius:50%;background:#4cb57a;box-shadow:0 0 0 4px #dff3e7}
@@ -186,7 +186,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 
 /* ---------- kadra ---------- */
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.team-grid>div>p{margin-top:16px;color:var(--muted)}
+.team-grid>div>p:not(.kicker){margin-top:16px;color:var(--muted)}
 .founder{margin:0;padding:40px;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow);position:relative}
 .founder-mark{width:72px;height:72px;border-radius:50%;background:var(--blue);color:var(--white);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:32px;margin-bottom:22px}
 .founder blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:21px;line-height:1.5;color:var(--ink)}
@@ -215,7 +215,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 
 /* ---------- FAQ ---------- */
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
-.faq-grid>div:first-child>p{margin-top:16px;color:var(--muted)}
+.faq-grid>div:first-child>p:not(.kicker),.faq-grid .deco-anchor>p{margin-top:16px;color:var(--muted)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq details:first-child{border-top:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 4px;font-weight:800;font-size:18px}
@@ -229,6 +229,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .contact::before{content:"";position:absolute;width:420px;aspect-ratio:1;border-radius:50%;background:var(--blue);opacity:.35;left:-160px;bottom:-220px}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative}
 .contact h2{color:var(--white)}
+.contact h2 .accent{color:var(--sun-100)}
 .contact-grid>div:first-child>p:not(.kicker){margin-top:16px;color:#dfe6f7;font-size:19px;max-width:28em}
 .contact-card{background:var(--white);color:var(--ink);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:20px}
 .contact-row{display:flex;flex-direction:column;gap:2px}
@@ -420,7 +421,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   font-size:var(--text-card);line-height:1.65}
 .value p,.edge p,.activity p:last-child,.care>p,.fund p:not(.fund-amount),.steps p{color:var(--muted)}
 .section-lead,.hero-lead{font-size:19px}
-.day-intro>p,.place-grid>div:first-child>p:last-child,.team-grid>div>p,.faq-grid>div:first-child>p{font-size:17px}
+.day-intro>p:not(.kicker):not(.now-card),.deco-anchor>p,.place-grid>div:first-child>p:last-child,.team-grid>div>p:not(.kicker),.faq-grid>div:first-child>p:not(.kicker){font-size:17px}
 .fine{font-size:15px}
 
 /* jedzenie i bezpieczeństwo: wypełnione jak pozostałe karty na białym tle */
@@ -437,13 +438,15 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .activity-body{padding:20px 24px 24px}
   .facts{padding:20px}
   .section-lead,.hero-lead{font-size:17px}
-  .day-intro>p,.place-grid>div:first-child>p:last-child,.team-grid>div>p,.faq-grid>div:first-child>p{font-size:16px}
+  .day-intro>p:not(.kicker):not(.now-card),.deco-anchor>p,.place-grid>div:first-child>p:last-child,.team-grid>div>p:not(.kicker),.faq-grid>div:first-child>p:not(.kicker){font-size:16px}
 }
 
 /* ---------- drewniane grafiki-akcenty (jedna na sekcję, zawsze obok tekstu) ---------- */
 .deco{display:block;height:auto;mix-blend-mode:multiply;pointer-events:none;user-select:none}
 .deco-day{width:min(240px,70%);margin-top:28px}
-.deco-faq{width:min(170px,55%);margin:32px auto 0}
+.deco-anchor{width:fit-content;max-width:100%}
+.deco-anchor>.deco{margin-left:auto;margin-right:auto}
+.deco-faq{width:min(170px,55%);margin-top:32px}
 .deco-corner{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));top:-30px;width:210px}
 #adaptacja>.container,#settling-in>.container{position:relative}
 .care{position:relative}
