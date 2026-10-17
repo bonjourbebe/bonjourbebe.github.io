@@ -12,9 +12,9 @@
   --blue-dark:#36508f;
   --blue-100:#e3eaf7;
   --blue-50:#f2f5fc;
-  --sun:#f2bd55;
-  --sun-100:#fde9bf;
-  --sun-50:#fef7e8;
+  --sun:#93b98f;
+  --sun-100:#dcebd8;
+  --sun-50:#f0f6ee;
   --ink:#2c3650;
   --muted:#5a6479;
   --line:#e1e6f0;
@@ -155,9 +155,9 @@ h3{font-size:20px;font-weight:800;line-height:1.3}
 .timeline time{font-weight:800;color:var(--blue-deep);font-variant-numeric:tabular-nums}
 .timeline .tl-phase{display:block;padding:20px 12px 6px;font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink)}
 .timeline .tl-phase:first-child{padding-top:10px}
-.timeline .meal span::after{content:"posiłek";margin-left:10px;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--sun-100);color:#8a5d0b;vertical-align:2px}
+.timeline .meal span::after{content:"posiłek";margin-left:10px;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:#fbe7d6;color:#94552a;vertical-align:2px}
 .timeline .rest span::after{content:"sen";margin-left:10px;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--blue-100);color:var(--blue-dark);vertical-align:2px}
-.timeline .outside span::after{content:"na dworze";margin-left:10px;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:#dff3e7;color:#2f7a50;vertical-align:2px}
+.timeline .outside span::after{content:"na dworze";margin-left:10px;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--sun-100);color:#3f6b3c;vertical-align:2px}
 html:lang(en) .timeline .meal span::after{content:"meal"}
 html:lang(en) .timeline .rest span::after{content:"sleep"}
 html:lang(en) .timeline .outside span::after{content:"outdoors"}
@@ -257,7 +257,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 /* ---------- opinie z Google (w sekcji kontaktu) ---------- */
 .reviews{margin-top:32px;padding:24px 26px 20px;border-radius:var(--r-lg);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);max-width:34em}
 .reviews-head{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sun-100)}
-.stars{color:var(--sun);letter-spacing:2px;font-size:16px}
+.stars{color:#f2bd55;letter-spacing:2px;font-size:16px}
 .review{margin:14px 0 0;display:flex;flex-direction:column;justify-content:center;transition:opacity .35s}
 .review.is-fading{opacity:0}
 .review blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--white)}
