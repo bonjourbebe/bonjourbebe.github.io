@@ -499,12 +499,14 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .act-photo:hover img{transform:scale(1.05)}
 .act-gallery--5{grid-template-columns:repeat(5,1fr)}
 .act-gallery--3{grid-template-columns:repeat(3,1fr);max-width:60%}
+.act-gallery--w80{max-width:80%}
 .act-gal-next{margin-top:26px}
 .act-hint{margin-top:12px;font-size:13.5px;color:var(--muted)}
 @media (max-width:600px){
   .act-facts,.act-facts--4{grid-template-columns:1fr;gap:8px;margin:18px 0 24px}
   .act-gallery,.act-gallery--5,.act-gallery--3{grid-template-columns:repeat(3,1fr);gap:6px;max-width:none}
   .act-gallery--4{grid-template-columns:repeat(2,1fr)}
+  .act-gallery--w80{max-width:none}
   .act-photo{border-radius:10px}
 }
 
