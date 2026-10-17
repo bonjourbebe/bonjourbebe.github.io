@@ -235,6 +235,13 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .c-label{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep)}
 .c-big{font-family:var(--display);font-weight:700;font-size:32px;text-decoration:none;color:var(--ink)}
 .c-mid{font-weight:800;font-size:19px;text-decoration:none;overflow-wrap:anywhere}
+.email-line{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}
+.copy-btn{border:1.5px solid var(--line);background:var(--white);color:var(--blue-deep);font:inherit;font-size:13px;font-weight:800;padding:6px 12px;border-radius:999px;cursor:pointer}
+.copy-btn:hover{border-color:var(--blue)}
+.copy-btn.is-done{background:var(--blue-50);border-color:var(--blue-50)}
+.contact-actions{display:flex;flex-wrap:wrap;gap:10px}
+.contact-actions .btn{flex:1 1 200px}
+.contact-hint{margin:-4px 0 0;font-size:14px;color:var(--muted)}
 .contact-card address{font-style:normal;font-size:18px;margin-bottom:6px}
 
 /* ---------- opinie z Google (w sekcji kontaktu) ---------- */

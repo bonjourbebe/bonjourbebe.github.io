@@ -132,6 +132,26 @@
     render(); total = readTime(data[i].text); schedule(total);
   })();
 
+
+  // Kopiowanie adresu e-mail (dla osób korzystających z poczty w przeglądarce)
+  document.querySelectorAll('.copy-btn').forEach((btn) => {
+    const label = btn.textContent;
+    btn.addEventListener('click', () => {
+      const text = btn.dataset.copy;
+      const done = () => { btn.textContent = btn.dataset.done || label; btn.classList.add('is-done'); setTimeout(() => { btn.textContent = label; btn.classList.remove('is-done'); }, 2000); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, () => selectFallback(text, done));
+      } else { selectFallback(text, done); }
+    });
+  });
+  function selectFallback(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.append(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    ta.remove();
+  }
+
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
