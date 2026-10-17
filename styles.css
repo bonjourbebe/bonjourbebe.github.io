@@ -225,13 +225,32 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .contact::before{content:"";position:absolute;width:420px;aspect-ratio:1;border-radius:50%;background:var(--blue);opacity:.35;left:-160px;bottom:-220px}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative}
 .contact h2{color:var(--white)}
-.contact-grid>div:first-child>p:last-child{margin-top:16px;color:#dfe6f7;font-size:19px;max-width:28em}
+.contact-grid>div:first-child>p:not(.kicker){margin-top:16px;color:#dfe6f7;font-size:19px;max-width:28em}
 .contact-card{background:var(--white);color:var(--ink);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:20px}
 .contact-row{display:flex;flex-direction:column;gap:2px}
 .c-label{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep)}
 .c-big{font-family:var(--display);font-weight:700;font-size:32px;text-decoration:none;color:var(--ink)}
 .c-mid{font-weight:800;font-size:19px;text-decoration:none;overflow-wrap:anywhere}
 .contact-card address{font-style:normal;font-size:18px;margin-bottom:6px}
+
+/* ---------- opinie z Google (w sekcji kontaktu) ---------- */
+.reviews{margin-top:32px;padding:24px 26px 20px;border-radius:var(--r-lg);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);max-width:34em}
+.reviews-head{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sun-100)}
+.stars{color:var(--sun);letter-spacing:2px;font-size:16px}
+.review{margin:14px 0 0;min-height:7.5em;display:flex;flex-direction:column;justify-content:center;transition:opacity .35s}
+.review.is-fading{opacity:0}
+.review blockquote{margin:0;font-size:18px;line-height:1.6;color:var(--white)}
+.review blockquote::before{content:"\201C";display:block;font-family:Georgia,serif;font-size:46px;line-height:.8;height:22px;color:var(--sun)}
+.review figcaption{margin-top:12px;font-weight:800;color:#dfe6f7;font-size:15px}
+.reviews-nav{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.rv-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:var(--white);font-size:18px;cursor:pointer}
+.rv-btn:hover{background:rgba(255,255,255,.14)}
+.rv-dots{display:flex;gap:6px}
+.rv-dots button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
+.rv-dots button[aria-current="true"]{background:var(--sun);width:22px;border-radius:6px}
+.rv-progress{flex:1;min-width:60px;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden}
+.rv-progress i{display:block;height:100%;width:0;background:var(--sun);border-radius:4px}
+.reviews-link{display:inline-block;margin-top:14px;font-size:14px;font-weight:800;color:var(--white);text-decoration:underline;text-decoration-color:var(--sun);text-underline-offset:4px}
 
 /* ---------- stopka ---------- */
 .footer{background:var(--ink);color:#c9d1e3;padding-block:32px}
@@ -241,7 +260,8 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .footer-end p{white-space:nowrap}
 .footer .logo-text{color:var(--white)}
 .footer .logo-text small{color:var(--sun-100)}
-.footer .logo img{width:44px;height:44px;border-radius:50%;background:var(--white)}
+.footer .logo img.logo-mark{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.9);background:var(--blue)}
+.footer .logo-text{font-size:22px}
 .footer a{color:var(--white)}
 .footer-end{display:flex;align-items:center;gap:20px}
 .social{display:flex;gap:10px}
