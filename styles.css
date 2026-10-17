@@ -446,7 +446,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .deco-anchor{width:fit-content;max-width:100%}
 .deco-anchor>.deco{margin-left:auto;margin-right:auto}
 .deco-faq{width:min(170px,55%);margin-top:32px}
-.deco-corner{position:absolute;right:max(20px, env(safe-area-inset-right, 0px));top:-30px;width:210px}
+.deco-corner{position:absolute;left:calc(var(--gutter) + 744px);top:-10px;width:200px}
 #adaptacja>.container,#settling-in>.container{position:relative}
 .care{position:relative}
 .deco-card{position:absolute;right:20px;top:14px;width:120px}
