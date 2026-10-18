@@ -306,7 +306,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 .lb-stage{margin:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:0 84px 28px}
 .lb-stage img{max-width:100%;max-height:calc(100dvh - 150px);width:auto;height:auto;object-fit:contain;border-radius:14px;transition:opacity .2s}
 .lb-stage img.is-loading{opacity:.35}
-.lb-stage figcaption{font-weight:700;font-size:17px;text-align:center;color:#fff}
+.lb-stage figcaption{display:none}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;border:0;background:#fff;color:var(--blue-deep);font-size:24px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
 .lb-nav:hover{background:var(--sun);color:var(--ink)}
 .lb-prev{left:max(20px, env(safe-area-inset-left, 0px))}
