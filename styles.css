@@ -391,7 +391,7 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   .faq details p{padding-right:4px}
   .contact{border-radius:32px 32px 0 0}
   .c-big{font-size:28px}
-  .mobile-bar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mobile-bar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px));background:#fff;border-top:1px solid var(--line);transform:translate3d(0,0,0);will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
   .mobile-bar .btn{flex:1;min-height:48px}
   .mobile-bar .btn:last-child{flex:1.6}
 }

@@ -244,4 +244,25 @@
 
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  // Pasek „Napisz / Zadzwoń” na telefonie: w przeglądarkach wbudowanych w aplikacje (Messenger, Facebook,
+  // Instagram, Google) dolny pasek potrafi „zawisnąć” w połowie ekranu przy przewijaniu. Przyklejamy go
+  // do dolnej krawędzi widocznej części strony (visualViewport).
+  (function stickyBar() {
+    const bar = document.querySelector('.mobile-bar');
+    const vv = window.visualViewport;
+    if (!bar || !vv) return;
+    let raf = 0;
+    const place = () => {
+      raf = 0;
+      const gap = window.innerHeight - (vv.height + vv.offsetTop);
+      bar.style.transform = gap > 1 ? 'translate3d(0,' + (-gap) + 'px,0)' : 'translate3d(0,0,0)';
+    };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(place); };
+    vv.addEventListener('resize', queue);
+    vv.addEventListener('scroll', queue);
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    place();
+  })();
 })();
