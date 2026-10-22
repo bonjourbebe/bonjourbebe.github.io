@@ -528,3 +528,37 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none !important;animation:none !important}
 }
+
+/* Standardy ochrony małoletnich */
+.std-hero{padding-block:56px 72px}
+.std-hero h1{max-width:16em}
+.std-meta{margin-top:16px;font-size:14px;color:var(--muted);font-weight:600}
+.std-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.std-card{background:var(--white);border-radius:var(--r-lg);padding:var(--card-pad);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.std-card h3{font-size:var(--title)}
+.std-card p{color:var(--muted);font-size:var(--text-card)}
+.std-card .std-ref{margin-top:auto;font-size:13px;font-weight:800;color:var(--blue-deep)}
+.std-kids{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.std-kids a{display:block;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);background:var(--white)}
+.std-kids img{display:block;width:100%;height:auto}
+.std-tools{margin-top:18px}
+.std-toggle-all{background:none;border:0;padding:0;font:inherit;font-weight:800;color:var(--blue-deep);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.std-doc{max-width:860px}
+.std-ch{border-bottom:1px solid var(--line)}
+.std-ch:first-child{border-top:1px solid var(--line)}
+.std-ch summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:14px;padding:18px 44px 18px 4px;font-weight:800;font-size:18px;position:relative}
+.std-ch summary::-webkit-details-marker{display:none}
+.std-ch summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--blue-50);color:var(--blue-deep);font-size:20px;transition:transform .2s}
+.std-ch[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.std-num{flex-shrink:0;min-width:7.5em;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
+.std-body{padding:0 4px 28px;font-size:16px;line-height:1.6}
+.std-body h3{font-size:18px;margin:22px 0 10px}
+.std-body h4{font-size:16px;margin:18px 0 8px;color:var(--blue-deep)}
+.std-body p{margin:8px 0}
+.std-ol{margin:0;padding-left:1.8em}
+.std-ol>li{margin:6px 0}
+.std-al{margin:6px 0;padding-left:1.6em}
+.std-al>li{margin:3px 0}
+.std-foot{margin-top:28px}
+@media (max-width:900px){.std-cards{grid-template-columns:repeat(2,1fr)}.std-kids{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.std-cards{grid-template-columns:1fr}.std-ch summary{flex-direction:column;gap:2px;font-size:17px}.std-num{min-width:0}}
