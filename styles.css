@@ -564,3 +564,4 @@ html:lang(en) .timeline .outside span::after{content:"outdoors"}
 @media (max-width:600px){.std-cards{grid-template-columns:1fr}.std-ch summary{flex-direction:column;gap:2px;font-size:17px}.std-num{min-width:0}}
 .std-note{margin-top:10px;font-size:15px;color:var(--muted)}
 .lang-switch,.header-cta{flex-shrink:0}
+.funding.std-single{grid-template-columns:1fr;max-width:820px}
